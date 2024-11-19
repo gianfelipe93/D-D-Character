@@ -18,14 +18,19 @@ export class DnDCharacter {
   }
 
   static getRandomInt() {
-    return Math.floor(Math.random() * 6);
+    return Math.floor(Math.random() * 7);
   }
 
   public static generateAbilityScore(): number {
     let highestScores = [0, 0, 0]
 
-    for (let i = 0; i <= 6; i++) {
+    for (let i = 0; i <= 4; i++) {
       const random = this.getRandomInt();
+
+      if (i <= 2) {
+        highestScores[i] = random;
+        continue;
+      }
 
       for (let x = 0; x <= 2; x++) {
         if (highestScores[x] < random) {
